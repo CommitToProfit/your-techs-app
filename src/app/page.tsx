@@ -1,8 +1,9 @@
 // src/app/page.tsx
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'YourTechs - Project Management & IT Help Platform | Get Expert Development Support',
+  title: 'Your Techs - Project Management & IT Help Platform | Get Expert Development Support',
   description: 'Professional project management with Kanban boards, real-time collaboration, and expert IT support. Track software projects, collaborate with developers, and get help from experienced programmers.',
   keywords: 'project management software, kanban boards, software development help, IT support, programming assistance, developer collaboration, tech project tracking',
   openGraph: {
@@ -23,7 +24,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">YourTechs</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Your Techs</h1>
             </div>
             <nav className="hidden md:flex space-x-8" role="navigation" aria-label="Main navigation">
               <a href="#projects" className="text-gray-700 hover:text-indigo-600 transition-colors">
@@ -37,9 +38,12 @@ export default function HomePage() {
               </a>
             </nav>
             <div className="flex items-center space-x-4">
-              <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">
+              <Link href="/auth/login" className="text-gray-700 hover:text-indigo-600 transition-colors px-4 py-2">
                 Sign In
-              </button>
+              </Link>
+              <Link href="/auth/signup" className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">
+                Sign Up
+              </Link>
             </div>
           </div>
         </div>
@@ -57,9 +61,9 @@ export default function HomePage() {
             with their IT challenges. Professional project management platform for developers and IT professionals.
           </p>
           <div className="mt-8 flex justify-center space-x-4">
-            <button className="bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-indigo-700 transition-colors">
+            <Link href="/auth/signup" className="bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-indigo-700 transition-colors">
               Get Started Free
-            </button>
+            </Link>
             <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors">
               Request IT Help
             </button>
