@@ -53,7 +53,9 @@ export default function SignUpPage() {
 
       if (data.user) {
         // Create profile
-        const { error: profileError } = await supabase
+        console.log('Attempting to create profile for user:', data.user.id)
+        
+        const { data: profileData, error: profileError } = await supabase
           .from('profiles')
           .insert([
             {
@@ -63,8 +65,12 @@ export default function SignUpPage() {
             }
           ])
 
+        console.log('Profile creation result:', { profileData, profileError })
+
         if (profileError) {
-          console.error('Profile creation error:', profileError)
+          console.error('Profile creation error details:', profileError)
+          setMessage(`Profile creation failed: ${profileError.message || 'Unknown error'}`)
+          return
         }
 
         setMessage('Check your email to confirm your account!')
